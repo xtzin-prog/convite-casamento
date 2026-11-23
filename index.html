@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ana &amp; Lucas · Convite de Casamento</title>
+<meta name="description" content="Você está convidado para o nosso casamento.">
+<meta name="theme-color" content="#14291f">
+<meta property="og:title" content="Ana & Lucas · Vamos nos casar">
+<meta property="og:description" content="Você está convidado para o nosso casamento.">
+<meta property="og:image" content="img/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-s.webp" media="(max-width: 900px)">
+<link rel="preload" as="image" href="img/hero.webp" media="(min-width: 901px)">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+
+<!-- ============ INTRO / ENVELOPE ============ -->
+<div class="intro" id="intro" aria-modal="true" role="dialog" aria-label="Abrir convite">
+  <div class="intro__panel intro__panel--l"></div>
+  <div class="intro__panel intro__panel--r"></div>
+  <canvas class="dust" id="dust-intro"></canvas>
+  <div class="intro__content">
+    <p class="eyebrow intro__eyebrow">Você recebeu um convite</p>
+    <button class="seal" id="openInvite" aria-label="Abrir convite">
+      <svg class="seal__ring" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+        <text><textPath href="#circ" startOffset="0" textLength="462" lengthAdjust="spacing">TOQUE PARA ABRIR · TOQUE PARA ABRIR · TOQUE PARA ABRIR · </textPath></text>
+      </svg>
+      <span class="seal__wax"><span class="seal__mono" data-cfg="monogram">A&amp;L</span></span>
+    </button>
+    <p class="intro__names script" data-cfg="names">Ana &amp; Lucas</p>
+  </div>
+</div>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" id="topbar">
+  <a href="#inicio" class="topbar__mono" data-cfg="monogram">A&amp;L</a>
+  <nav class="topbar__nav" aria-label="Seções">
+    <a href="#historia">História</a>
+    <a href="#programacao">Programação</a>
+    <a href="#local">Local</a>
+    <a href="#presentes">Presentes</a>
+  </nav>
+  <a href="#rsvp" class="btn btn--sm btn--ghost-light">Confirmar</a>
+</header>
+<div class="progress" id="progress"></div>
+
+<button class="music" id="music" aria-label="Música" hidden>
+  <span></span><span></span><span></span><span></span>
+</button>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="hero__media">
+    <picture>
+      <source media="(max-width: 900px)" srcset="img/hero-s.webp">
+      <img src="img/hero.webp" alt="O casal abraçado na praia" class="hero__img">
+    </picture>
+  </div>
+  <div class="hero__shade"></div>
+  <canvas class="dust" id="dust-hero"></canvas>
+  <div class="hero__content">
+    <span class="pill hero__pill">Save the date</span>
+    <h1 class="hero__names">
+      <span class="split" data-cfg="bride">Ana</span>
+      <span class="hero__amp script">&amp;</span>
+      <span class="split" data-cfg="groom">Lucas</span>
+    </h1>
+    <p class="hero__date"><span data-cfg="dateShort">15 · 05 · 2027</span></p>
+    <p class="hero__place" data-cfg="city">Balneário Camboriú · SC</p>
+  </div>
+  <a href="#convite" class="scroll-cue" aria-label="Rolar para baixo"><span></span></a>
+</section>
+
+<!-- ============ CONVITE ============ -->
+<section class="invite section--cream" id="convite">
+  <svg class="wave wave--top" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,0 L0,0 Z"/></svg>
+  <div class="container invite__grid">
+    <div class="invite__text">
+      <p class="script script--lg reveal">Queridos família e amigos</p>
+      <p class="lead reveal" data-delay="1">Numa praia, com o vento no cabelo e o mar de testemunha, ele se ajoelhou — e ela disse <em>sim</em>.</p>
+      <p class="body reveal" data-delay="2">Agora queremos viver o próximo capítulo ao lado de quem faz parte da nossa história. Será uma alegria imensa contar com a sua presença no dia em que vamos dizer “sim” para sempre.</p>
+
+      <div class="date-block reveal" data-delay="3">
+        <span class="date-block__side" data-cfg="month">Maio</span>
+        <span class="date-block__day" data-cfg="day">15</span>
+        <span class="date-block__side" data-cfg="time">16h00</span>
+      </div>
+      <p class="eyebrow eyebrow--dark reveal" data-delay="4"><span data-cfg="weekday">Sábado</span> · <span data-cfg="year">2027</span></p>
+    </div>
+    <figure class="arch arch--reveal">
+      <div class="arch__inner" data-speed="-0.06">
+        <img src="img/arch-s.webp" srcset="img/arch-s.webp 600w, img/arch.webp 1200w" sizes="(max-width: 900px) 80vw, 420px" alt="Ele a abraça por trás, na beira do mar" loading="lazy">
+      </div>
+      <figcaption class="script arch__cap">para sempre</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ HISTÓRIA ============ -->
+<section class="story section--dark" id="historia">
+  <svg class="wave wave--top wave--cream" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,0 L1440,30 C1180,80 900,10 680,40 C430,75 220,15 0,45 Z"/></svg>
+  <canvas class="dust" id="dust-story"></canvas>
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow reveal">Nossa história</p>
+      <h2 class="display reveal" data-delay="1">Ela disse <em>sim</em></h2>
+      <p class="script script--md reveal" data-delay="2">08 de novembro de 2026</p>
+    </header>
+
+    <div class="chapters">
+      <article class="chapter">
+        <div class="chapter__media frame reveal-clip">
+          <img src="img/h1-s.webp" srcset="img/h1-s.webp 600w, img/h1.webp 1200w" sizes="(max-width: 900px) 86vw, 40vw" alt="Ela caminha pela praia com um buquê" loading="lazy" data-speed="0.05">
+        </div>
+        <div class="chapter__text">
+          <span class="chapter__num reveal">01</span>
+          <h3 class="chapter__title reveal" data-delay="1">Um dia de praia</h3>
+          <p class="body body--light reveal" data-delay="2">Um ensaio “qualquer”, ela pensou. Vestido branco, flores vermelhas e o mar ao fundo. Mal sabia ela o que estava por vir.</p>
+        </div>
+      </article>
+
+      <article class="chapter chapter--alt">
+        <div class="chapter__media frame frame--arch reveal-clip">
+          <img src="img/h2-s.webp" srcset="img/h2-s.webp 600w, img/h2.webp 1200w" sizes="(max-width: 900px) 86vw, 40vw" alt="Ele se ajoelha na areia com o anel" loading="lazy" data-speed="0.05">
+        </div>
+        <div class="chapter__text">
+          <span class="chapter__num reveal">02</span>
+          <h3 class="chapter__title reveal" data-delay="1">Um joelho na areia</h3>
+          <p class="body body--light reveal" data-delay="2">Entre pedras e ondas, ele se ajoelhou com uma caixinha nas mãos. O vento parou por um segundo — ou foi o coração dela.</p>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="chapter__media frame reveal-clip">
+          <img src="img/h3-s.webp" srcset="img/h3-s.webp 600w, img/h3.webp 1200w" sizes="(max-width: 900px) 86vw, 40vw" alt="Ela o abraça enquanto ele ainda está ajoelhado" loading="lazy" data-speed="0.05">
+        </div>
+        <div class="chapter__text">
+          <span class="chapter__num reveal">03</span>
+          <h3 class="chapter__title reveal" data-delay="1">O abraço do sim</h3>
+          <p class="body body--light reveal" data-delay="2">Antes mesmo da pergunta terminar, ela já estava nos braços dele. Teve lágrima, riso e muita areia.</p>
+        </div>
+      </article>
+
+      <article class="chapter chapter--alt">
+        <div class="chapter__media frame frame--arch reveal-clip">
+          <img src="img/h4-s.webp" srcset="img/h4-s.webp 600w, img/h4.webp 1200w" sizes="(max-width: 900px) 86vw, 40vw" alt="Ela sorri com as mãos no rosto mostrando o anel" loading="lazy" data-speed="0.05">
+        </div>
+        <div class="chapter__text">
+          <span class="chapter__num reveal">04</span>
+          <h3 class="chapter__title reveal" data-delay="1">E agora, o altar</h3>
+          <p class="body body--light reveal" data-delay="2">O anel já está no dedo. Falta só você, ali do nosso lado, no dia mais bonito das nossas vidas.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTAGEM ============ -->
+<section class="countdown" id="contagem">
+  <div class="countdown__bg" data-speed="0.18">
+    <picture>
+      <source media="(max-width: 900px)" srcset="img/count-s.webp">
+      <img src="img/count.webp" alt="" loading="lazy">
+    </picture>
+  </div>
+  <div class="countdown__shade"></div>
+  <div class="countdown__content">
+    <p class="eyebrow reveal">Faltam</p>
+    <div class="timer reveal" data-delay="1" id="timer">
+      <div class="timer__box"><span class="timer__n" data-t="d">000</span><span class="timer__l">dias</span></div>
+      <div class="timer__box"><span class="timer__n" data-t="h">00</span><span class="timer__l">horas</span></div>
+      <div class="timer__box"><span class="timer__n" data-t="m">00</span><span class="timer__l">min</span></div>
+      <div class="timer__box"><span class="timer__n" data-t="s">00</span><span class="timer__l">seg</span></div>
+    </div>
+    <p class="script script--lg countdown__cap reveal" data-delay="2">…para o nosso “sim” no altar</p>
+    <a class="btn btn--light reveal" data-delay="3" id="addCalendar" href="#" download="casamento.ics">Salvar na agenda</a>
+  </div>
+</section>
+
+<!-- ============ PROGRAMAÇÃO ============ -->
+<section class="schedule section--cream" id="programacao">
+  <div class="container container--narrow">
+    <header class="section-head">
+      <p class="eyebrow eyebrow--dark reveal">O grande dia</p>
+      <h2 class="display display--dark reveal" data-delay="1">Programação</h2>
+    </header>
+    <ol class="timeline" id="timeline">
+      <li class="timeline__line" aria-hidden="true"><span></span></li>
+      <li class="tl reveal"><time class="tl__time">15h30</time><div><h3 class="tl__title">Recepção</h3><p class="body">Chegada dos convidados com um welcome drink à beira-mar.</p></div></li>
+      <li class="tl reveal"><time class="tl__time">16h00</time><div><h3 class="tl__title">Cerimônia</h3><p class="body">O momento em que trocamos alianças e votos. Por favor, seja pontual.</p></div></li>
+      <li class="tl reveal"><time class="tl__time">17h00</time><div><h3 class="tl__title">Pôr do sol &amp; fotos</h3><p class="body">Brinde, abraços e fotos com a luz mais bonita do dia.</p></div></li>
+      <li class="tl reveal"><time class="tl__time">19h00</time><div><h3 class="tl__title">Jantar</h3><p class="body">Mesa posta para celebrar com quem a gente ama.</p></div></li>
+      <li class="tl reveal"><time class="tl__time">21h00</time><div><h3 class="tl__title">Festa</h3><p class="body">Pista aberta até os pés pedirem descanso.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LOCAL ============ -->
+<section class="venue section--dark" id="local">
+  <svg class="wave wave--top wave--cream" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,0 L1440,45 C1200,10 960,70 720,40 C480,10 240,70 0,35 Z"/></svg>
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow reveal">Onde</p>
+      <h2 class="display reveal" data-delay="1">Local</h2>
+    </header>
+    <div class="venue__grid">
+      <div class="venue__card reveal">
+        <svg class="venue__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-9 0-16 7-16 16 0 12 16 32 16 32s16-20 16-32c0-9-7-16-16-16z"/><circle cx="32" cy="22" r="6"/></svg>
+        <p class="eyebrow">Cerimônia &amp; Recepção</p>
+        <h3 class="venue__name" data-cfg="venueName">Espaço Beira-Mar</h3>
+        <p class="body body--light" data-cfg="venueAddress">Av. Atlântica, 1000 · Centro<br>Balneário Camboriú · SC</p>
+        <div class="venue__actions">
+          <a class="btn btn--light" id="mapsLink" href="#" target="_blank" rel="noopener">Abrir no Google Maps</a>
+          <a class="btn btn--ghost-light" id="wazeLink" href="#" target="_blank" rel="noopener">Waze</a>
+        </div>
+      </div>
+      <div class="venue__map reveal" data-delay="1">
+        <iframe id="mapFrame" title="Mapa do local" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DRESS CODE ============ -->
+<section class="dress section--ivory" id="traje">
+  <div class="container container--narrow">
+    <header class="section-head">
+      <p class="eyebrow eyebrow--dark reveal">Traje</p>
+      <h2 class="display display--dark reveal" data-delay="1">Dress code</h2>
+      <p class="script script--md script--green reveal" data-delay="2">Esporte fino</p>
+    </header>
+    <p class="body center reveal">Ficaremos muito felizes se vocês embarcarem na paleta do nosso dia. Pedimos, com carinho, que o <strong>branco</strong> fique só com a noiva.</p>
+    <ul class="swatches" id="swatches">
+      <li style="--c:#17302a"><span></span><small>Esmeralda</small></li>
+      <li style="--c:#5f7464"><span></span><small>Sálvia</small></li>
+      <li style="--c:#c9b79c"><span></span><small>Areia</small></li>
+      <li style="--c:#e7dccb"><span></span><small>Champagne</small></li>
+      <li style="--c:#8c5a46"><span></span><small>Terracota</small></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section class="gallery section--cream" id="galeria">
+  <header class="section-head container">
+    <p class="eyebrow eyebrow--dark reveal">Momentos</p>
+    <h2 class="display display--dark reveal" data-delay="1">Galeria</h2>
+  </header>
+  <div class="marquee" data-dir="left">
+    <div class="marquee__track">
+      <button class="ph" data-full="img/g1.webp"><img src="img/g1-s.webp" alt="Ele a levanta nos braços" loading="lazy"></button>
+      <button class="ph ph--wide" data-full="img/g8.webp"><img src="img/g8-s.webp" alt="Ele beija a mão dela" loading="lazy"></button>
+      <button class="ph" data-full="img/g2.webp"><img src="img/g2-s.webp" alt="Os dois dançam na areia" loading="lazy"></button>
+      <button class="ph" data-full="img/g3.webp"><img src="img/g3-s.webp" alt="Ela gira com o vento no cabelo" loading="lazy"></button>
+      <button class="ph ph--wide" data-full="img/g9.webp"><img src="img/g9-s.webp" alt="O pedido na beira do mar" loading="lazy"></button>
+      <button class="ph" data-full="img/g4.webp"><img src="img/g4-s.webp" alt="Um beijo na praia" loading="lazy"></button>
+    </div>
+  </div>
+  <div class="marquee" data-dir="right">
+    <div class="marquee__track">
+      <button class="ph" data-full="img/g5.webp"><img src="img/g5-s.webp" alt="Ela mostra o anel com o buquê" loading="lazy"></button>
+      <button class="ph" data-full="img/g6.webp"><img src="img/g6-s.webp" alt="Detalhe do anel" loading="lazy"></button>
+      <button class="ph ph--wide" data-full="img/g12.webp"><img src="img/g12-s.webp" alt="Ele coloca o anel no dedo dela" loading="lazy"></button>
+      <button class="ph" data-full="img/g7.webp"><img src="img/g7-s.webp" alt="Abraço por trás à beira-mar" loading="lazy"></button>
+      <button class="ph" data-full="img/g10.webp"><img src="img/g10-s.webp" alt="Testa com testa" loading="lazy"></button>
+      <button class="ph" data-full="img/g11.webp"><img src="img/g11-s.webp" alt="Os dois mostram o anel" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESENTES ============ -->
+<section class="gifts section--dark" id="presentes">
+  <svg class="wave wave--top wave--cream" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,0 L1440,0 L1440,40 C1180,75 960,5 720,35 C480,65 240,10 0,40 Z"/></svg>
+  <div class="container container--narrow center">
+    <header class="section-head">
+      <p class="eyebrow reveal">Com carinho</p>
+      <h2 class="display reveal" data-delay="1">Presentes</h2>
+    </header>
+    <p class="body body--light reveal">A sua presença é o nosso maior presente. Mas, se quiser nos mimar, preparamos uma lista com muito carinho — ou você pode contribuir com a nossa lua de mel via PIX.</p>
+    <div class="gift-cards">
+      <a class="gift-card reveal" data-delay="1" id="giftListLink" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="26" width="44" height="30" rx="2"/><rect x="6" y="18" width="52" height="10" rx="2"/><path d="M32 18v38M32 18c-6-10-18-8-14 0M32 18c6-10 18-8 14 0"/></svg>
+        <span class="gift-card__t">Lista de presentes</span>
+        <span class="gift-card__s">Ver lista →</span>
+      </a>
+      <button class="gift-card reveal" data-delay="2" id="pixCopy" type="button">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l26 26-26 26L6 32z"/><path d="M20 32l12-12 12 12-12 12z"/></svg>
+        <span class="gift-card__t">PIX lua de mel</span>
+        <span class="gift-card__s"><span data-cfg="pixKey">seuemail@exemplo.com</span></span>
+        <span class="gift-card__cta" id="pixLabel">Copiar chave</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section class="rsvp section--ivory" id="rsvp">
+  <div class="container rsvp__grid">
+    <figure class="arch arch--tall arch--reveal">
+      <div class="arch__inner" data-speed="-0.05">
+        <img src="img/rsvp-s.webp" srcset="img/rsvp-s.webp 600w, img/rsvp.webp 1200w" sizes="(max-width: 900px) 80vw, 420px" alt="Abraço logo depois do pedido" loading="lazy">
+      </div>
+    </figure>
+    <div class="rsvp__form-wrap">
+      <header class="section-head section-head--left">
+        <p class="eyebrow eyebrow--dark reveal">RSVP</p>
+        <h2 class="display display--dark reveal" data-delay="1">Confirme sua presença</h2>
+        <p class="body reveal" data-delay="2">Por favor, responda até <strong data-cfg="rsvpDeadline">15 de abril de 2027</strong>. A confirmação abre direto no nosso WhatsApp.</p>
+      </header>
+      <form class="form reveal" data-delay="3" id="rsvpForm" novalidate>
+        <label class="field">
+          <input type="text" name="nome" required placeholder=" " autocomplete="name">
+          <span>Seu nome completo</span>
+        </label>
+        <fieldset class="choice">
+          <legend class="sr-only">Você vai?</legend>
+          <label><input type="radio" name="vai" value="sim" checked><span>Vou com certeza!</span></label>
+          <label><input type="radio" name="vai" value="nao"><span>Infelizmente não poderei</span></label>
+        </fieldset>
+        <div class="field-row" id="guestsRow">
+          <span class="field-row__label">Quantas pessoas (contando você)?</span>
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="Menos">−</button>
+            <output name="qtd" id="qtd">1</output>
+            <button type="button" data-step="1" aria-label="Mais">+</button>
+          </div>
+        </div>
+        <label class="field">
+          <textarea name="msg" rows="3" placeholder=" "></textarea>
+          <span>Deixe um recado para os noivos (opcional)</span>
+        </label>
+        <button class="btn btn--dark btn--block" type="submit">Enviar confirmação</button>
+        <p class="form__error" id="formError" role="alert"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="finale">
+  <div class="finale__bg" data-speed="0.15">
+    <picture>
+      <source media="(max-width: 900px)" srcset="img/final-s.webp">
+      <img src="img/final.webp" alt="Testa com testa na praia" loading="lazy">
+    </picture>
+  </div>
+  <div class="finale__shade"></div>
+  <div class="finale__content">
+    <p class="script script--xl reveal">Esperamos por você!</p>
+    <p class="finale__names reveal" data-delay="1" data-cfg="names">Ana &amp; Lucas</p>
+    <p class="eyebrow reveal" data-delay="2" data-cfg="dateShort">15 · 05 · 2027</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <span data-cfg="monogram">A&amp;L</span> · feito com amor
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" aria-label="Fechar">×</button>
+  <img alt="">
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status"></div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
