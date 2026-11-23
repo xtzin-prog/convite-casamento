@@ -8,7 +8,7 @@ window.CONFIG = {
   monogram: "J&A",         // iniciais do selo
 
   // Data e hora da cerimônia (formato: AAAA-MM-DDTHH:MM, horário de Brasília)
-  date: "2027-03-20T16:00:00-03:00",
+  date: "2027-03-20T17:00:00-03:00",
   durationHours: 8,        // usado no "Salvar na agenda"
 
   city: "Tibagi - PR",

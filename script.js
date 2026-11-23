@@ -21,7 +21,7 @@
     names: `${C.name1} &amp; ${C.name2}`,
     dateShort: `${dd} · ${mm} · ${yyyy}`,
     day: dd, month: months[monthIdx], year: yyyy, weekday: weekdays[wd],
-    time: `${hh}h${mi}`, city: C.city, venueName: C.venueName, venueAddress: C.venueAddress,
+    time: `${hh}:${mi}`, city: C.city, venueName: C.venueName, venueAddress: C.venueAddress,
     rsvpDeadline: C.rsvpDeadline, pixKey: C.pixDisplay || C.pixKey,
   };
   $$("[data-cfg]").forEach((el) => {
