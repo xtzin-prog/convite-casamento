@@ -22,7 +22,7 @@
     dateShort: `${dd} · ${mm} · ${yyyy}`,
     day: dd, month: months[monthIdx], year: yyyy, weekday: weekdays[wd],
     time: `${hh}h${mi}`, city: C.city, venueName: C.venueName, venueAddress: C.venueAddress,
-    rsvpDeadline: C.rsvpDeadline, pixKey: C.pixKey,
+    rsvpDeadline: C.rsvpDeadline, pixKey: C.pixDisplay || C.pixKey,
   };
   $$("[data-cfg]").forEach((el) => {
     const v = values[el.dataset.cfg];
@@ -35,7 +35,8 @@
   const q = encodeURIComponent(C.mapsQuery || ll);
   $("#mapsLink").href = C.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${q}`;
   $("#wazeLink").href = `https://waze.com/ul?ll=${ll}&navigate=yes`;
-  $("#giftListLink").href = C.giftListUrl || "#";
+  if (C.giftListUrl) $("#giftListLink").href = C.giftListUrl;
+  else { $("#giftListLink").remove(); $(".gift-cards").classList.add("gift-cards--single"); }
   const mapFrame = $("#mapFrame");
   // load map only when near viewport
   new IntersectionObserver((es, o) => {

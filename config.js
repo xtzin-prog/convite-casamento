@@ -21,11 +21,12 @@ window.CONFIG = {
   lng: -50.4133029,
 
   // WhatsApp que recebe as confirmações: DDI + DDD + número, só dígitos
-  whatsapp: "5547999999999",
+  whatsapp: "5542988681675",
   rsvpDeadline: "20 de fevereiro de 2027",
 
-  pixKey: "seuemail@exemplo.com",
-  giftListUrl: "https://www.exemplo.com/lista-de-presentes",
+  pixKey: "60047807000101",                 // chave PIX (o que é copiado)
+  pixDisplay: "CNPJ 60.047.807/0001-01",     // como a chave aparece no site
+  giftListUrl: "",        // link da lista de presentes (vazio = o cartão some)
 
   // Música de fundo (opcional): coloque um arquivo .mp3 na pasta e escreva o nome, ex: "musica.mp3"
   music: ""
