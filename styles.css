@@ -223,7 +223,7 @@ section{position:relative}
 .hero__pill{opacity:0;transform:translateY(14px);transition:all 1s var(--ease) .4s}
 .hero__names{
   font-family:var(--f-display);font-weight:400;text-transform:uppercase;letter-spacing:.04em;
-  font-size:clamp(3.4rem,13vw,9rem);line-height:.92;margin:1.6rem 0 1rem;
+  font-size:clamp(2.6rem,12vw,9rem);line-height:.92;margin:1.6rem 0 1rem;
   display:flex;flex-direction:column;align-items:center;
 }
 .hero__amp{
@@ -325,6 +325,7 @@ section{position:relative}
 .countdown{min-height:100svh;display:grid;place-items:center;overflow:hidden;color:var(--ivory);text-align:center}
 .countdown__bg{position:absolute;inset:-18% 0;will-change:transform}
 .countdown__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+@media (max-width:900px){.countdown__bg img{object-position:50% 35%}}
 .countdown__shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--green-800) 0%,rgba(15,34,25,.35) 22%,rgba(15,34,25,.45) 70%,var(--green-800) 100%)}
 .countdown__content{position:relative;z-index:2;padding:120px var(--pad)}
 .timer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,2vw,18px);margin:0 auto;max-width:620px}
@@ -416,6 +417,16 @@ section{position:relative}
 .ph:hover img{transform:scale(1.06)}
 .ph::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15);border-radius:inherit}
 
+.soon{text-align:center}
+.soon__frames{display:flex;justify-content:center;align-items:flex-end;gap:14px;margin-bottom:2rem}
+.soon__frames span{
+  width:clamp(70px,16vw,110px);aspect-ratio:2/3;border:1px solid var(--gold);border-radius:999px 999px 4px 4px;
+  background:linear-gradient(110deg,rgba(195,164,110,.06) 30%,rgba(195,164,110,.22) 50%,rgba(195,164,110,.06) 70%) 0 0/250% 100%;
+  animation:shimmer 3.2s ease-in-out infinite;
+}
+.soon__frames span:nth-child(2){width:clamp(90px,20vw,140px);animation-delay:.4s}
+.soon__frames span:nth-child(3){animation-delay:.8s}
+@keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
 .lightbox{position:fixed;inset:0;z-index:120;background:rgba(10,22,16,.94);display:grid;place-items:center;padding:20px;opacity:0;transition:opacity .4s}
 .lightbox.is-open{opacity:1}
 .lightbox img{max-width:min(1100px,100%);max-height:88svh;border-radius:4px;transform:scale(.94);transition:transform .6s var(--ease)}

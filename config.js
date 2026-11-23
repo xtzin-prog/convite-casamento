@@ -3,23 +3,26 @@
    Tudo que estiver neste arquivo aparece automaticamente no site.
    ========================================================= */
 window.CONFIG = {
-  bride: "Ana",            // nome dela
-  groom: "Lucas",          // nome dele
-  monogram: "A&L",         // iniciais do selo
+  name1: "José",           // primeiro nome exibido
+  name2: "Antonella",      // segundo nome exibido
+  monogram: "J&A",         // iniciais do selo
 
   // Data e hora da cerimônia (formato: AAAA-MM-DDTHH:MM, horário de Brasília)
-  date: "2027-05-15T16:00:00-03:00",
+  date: "2027-03-20T16:00:00-03:00",
   durationHours: 8,        // usado no "Salvar na agenda"
 
-  city: "Balneário Camboriú · SC",
+  city: "Tibagi - PR",
 
-  venueName: "Espaço Beira-Mar",
-  venueAddress: "Av. Atlântica, 1000 · Centro<br>Balneário Camboriú · SC",
-  mapsQuery: "Av. Atlântica, 1000, Balneário Camboriú, SC",  // o que buscar no mapa
+  venueName: "Encontro das Águas",
+  venueAddress: "Pousada Encontro das Águas<br>Tibagi - PR",
+  mapsUrl: "https://www.google.com/maps/place/Pousada+Encontro+das+%C3%81guas+Tibagi/@-24.5017917,-50.4134062,80m/data=!3m1!1e3!4m20!1m10!3m9!1s0x94e9bf588149982b:0x4a131725f6c99749!2sPousada+Encontro+das+%C3%81guas+Tibagi!5m2!4m1!1i2!8m2!3d-24.5019704!4d-50.4133029!16s%2Fg%2F11f900p6c3!3m8!1s0x94e9bf588149982b:0x4a131725f6c99749!5m2!4m1!1i2!8m2!3d-24.5019704!4d-50.4133029!16s%2Fg%2F11f900p6c3?entry=ttu",
+  mapsQuery: "Pousada Encontro das Águas, Tibagi - PR",  // nome mostrado no mapa embutido
+  lat: -24.5019704,
+  lng: -50.4133029,
 
   // WhatsApp que recebe as confirmações: DDI + DDD + número, só dígitos
   whatsapp: "5547999999999",
-  rsvpDeadline: "15 de abril de 2027",
+  rsvpDeadline: "20 de fevereiro de 2027",
 
   pixKey: "seuemail@exemplo.com",
   giftListUrl: "https://www.exemplo.com/lista-de-presentes",

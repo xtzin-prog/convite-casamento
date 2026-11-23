@@ -17,8 +17,8 @@
   const wd = new Date(`${yyyy}-${mm}-${dd}T12:00:00`).getDay();
 
   const values = {
-    bride: C.bride, groom: C.groom, monogram: C.monogram,
-    names: `${C.bride} &amp; ${C.groom}`,
+    name1: C.name1, name2: C.name2, monogram: C.monogram,
+    names: `${C.name1} &amp; ${C.name2}`,
     dateShort: `${dd} · ${mm} · ${yyyy}`,
     day: dd, month: months[monthIdx], year: yyyy, weekday: weekdays[wd],
     time: `${hh}h${mi}`, city: C.city, venueName: C.venueName, venueAddress: C.venueAddress,
@@ -28,17 +28,18 @@
     const v = values[el.dataset.cfg];
     if (v != null && v !== "") el.innerHTML = String(v).replace(/&(?!amp;|lt;|gt;|nbsp;)/g, "&amp;");
   });
-  document.title = `${C.bride} & ${C.groom} · Convite de Casamento`;
+  document.title = `${C.name1} & ${C.name2} · Convite de Casamento`;
 
   // Links
-  const q = encodeURIComponent(C.mapsQuery || C.venueName || "");
-  $("#mapsLink").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-  $("#wazeLink").href = `https://waze.com/ul?q=${q}&navigate=yes`;
+  const ll = `${C.lat},${C.lng}`;
+  const q = encodeURIComponent(C.mapsQuery || ll);
+  $("#mapsLink").href = C.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${q}`;
+  $("#wazeLink").href = `https://waze.com/ul?ll=${ll}&navigate=yes`;
   $("#giftListLink").href = C.giftListUrl || "#";
   const mapFrame = $("#mapFrame");
   // load map only when near viewport
   new IntersectionObserver((es, o) => {
-    if (es[0].isIntersecting) { mapFrame.src = `https://www.google.com/maps?q=${q}&output=embed`; o.disconnect(); }
+    if (es[0].isIntersecting) { mapFrame.src = `https://www.google.com/maps?q=${q}&z=16&output=embed`; o.disconnect(); }
   }, { rootMargin: "400px" }).observe(mapFrame);
 
   /* ---------- 2. Split hero names into letters ---------- */
@@ -189,8 +190,9 @@
     "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Convite//PT-BR", "BEGIN:VEVENT",
     `UID:${fmt(date)}-casamento@convite`, `DTSTAMP:${fmt(new Date())}`,
     `DTSTART:${fmt(date)}`, `DTEND:${fmt(end)}`,
-    `SUMMARY:Casamento ${C.bride} & ${C.groom}`,
-    `LOCATION:${(C.venueName + " - " + (C.mapsQuery || "")).replace(/,/g, "\\,")}`,
+    `SUMMARY:Casamento ${C.name1} & ${C.name2}`,
+    `LOCATION:${(C.venueName + " - " + C.city).replace(/,/g, "\\,")}`,
+    `GEO:${C.lat};${C.lng}`,
     "BEGIN:VALARM", "TRIGGER:-P1D", "ACTION:DISPLAY", "DESCRIPTION:Amanhã é o casamento!", "END:VALARM",
     "END:VEVENT", "END:VCALENDAR",
   ].join("\r\n");
@@ -256,8 +258,8 @@
     const vai = form.vai.value === "sim";
     const msg = form.msg.value.trim();
     let text = vai
-      ? `Olá, ${C.bride} e ${C.groom}! 💍\nConfirmo minha presença no casamento.\n\n👤 Nome: ${nome}\n👥 Pessoas: ${count}`
-      : `Olá, ${C.bride} e ${C.groom}!\nInfelizmente não poderei comparecer ao casamento. 💚\n\n👤 Nome: ${nome}`;
+      ? `Olá, ${C.name1} e ${C.name2}! 💍\nConfirmo minha presença no casamento.\n\n👤 Nome: ${nome}\n👥 Pessoas: ${count}`
+      : `Olá, ${C.name1} e ${C.name2}!\nInfelizmente não poderei comparecer ao casamento. 💚\n\n👤 Nome: ${nome}`;
     if (msg) text += `\n\n💌 Recado: ${msg}`;
     window.open(`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
     showToast(vai ? "Que alegria! Finalize o envio no WhatsApp." : "Obrigado por avisar! Finalize no WhatsApp.");
