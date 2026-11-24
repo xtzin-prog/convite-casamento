@@ -531,3 +531,4 @@ section{position:relative}
   .marquee{overflow-x:auto}
 }
 @media (min-width:640px){.gift-cards--single{grid-template-columns:minmax(0,420px);justify-content:center}}
+.dress .section-head{margin-bottom:0}
